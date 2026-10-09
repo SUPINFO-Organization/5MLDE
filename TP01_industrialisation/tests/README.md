@@ -1,0 +1,1 @@
+Écrire des tests de comportement : invalidité des données, séparation des jeux, catégorie inconnue, rechargement des deux modèles et absence d’artefact en cas d’échec. Voir l’énoncé pour les preuves attendues.

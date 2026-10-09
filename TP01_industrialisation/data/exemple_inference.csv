@@ -1,0 +1,4 @@
+appid,price,required_age,dlc_count,achievements,windows,mac,linux,release_date,genres
+730,0.0,0,1,1,True,False,True,2012-08-21,"['Action', 'Free To Play']"
+578080,0.0,0,0,37,True,False,False,2017-12-21,"['Action', 'Adventure', 'Massively Multiplayer', 'Free To Play']"
+570,0.0,0,2,0,True,True,True,2013-07-09,['GenreInconnuDuTP']

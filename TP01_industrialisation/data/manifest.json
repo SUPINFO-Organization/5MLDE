@@ -1,0 +1,27 @@
+{
+  "source": "games_march2025_full.csv",
+  "source_sha256": "1ff3b4fa2eeeb7faf1d9c37abb63b9522813532fbf68f4c4a236d5a466688db7",
+  "source_bytes": 471492150,
+  "projection_sha256": "7eec2ff4e6f1389bfb74308c8de1206fee2a94f51120895c2cf7fce84146312f",
+  "rows": 94948,
+  "columns": [
+    "appid",
+    "name",
+    "release_date",
+    "required_age",
+    "price",
+    "dlc_count",
+    "windows",
+    "mac",
+    "linux",
+    "achievements",
+    "genres",
+    "positive",
+    "negative",
+    "pct_pos_total",
+    "num_reviews_total",
+    "estimated_owners"
+  ],
+  "transformation": "Projection de colonnes uniquement ; toutes les lignes et leur ordre sont conservés.",
+  "provenance": "CSV fourni par l’enseignant. Mars 2025 est indiqué dans le nom ; collecte et licence non vérifiées."
+}
