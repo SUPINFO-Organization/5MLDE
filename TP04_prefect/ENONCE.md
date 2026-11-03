@@ -310,29 +310,38 @@ MLflow présente pour chaque nouveau pipeline malgré la réutilisation d'un cal
 **Situation :** un flow échoue la nuit ; ses logs sont disponibles, mais personne ne consulte
 l'interface. Construire une alerte qui permette de retrouver rapidement l'incident et ses conséquences.
 
-### A. Préparer le canal et son bot de notification
+### A. Créer son propre webhook Teams avec un flux de travail
 
-Utiliser un canal Teams standard dédié au TP et l'application **Workflows / Power Automate**.
-Prévoir un compte de l'établissement autorisé à créer ces workflows et à publier dans ce canal.
-La disponibilité dépend des règles et licences du tenant ; vérifier ce prérequis avant la séance.
+Tous les élèves de l'établissement disposent des droits nécessaires pour créer des flux de travail
+Teams. **Chaque élève doit créer son propre flux de travail et récupérer son propre lien webhook**,
+même si le reste du TP est réalisé en binôme.
 
-Créer un workflow à partir du modèle de réception d'un webhook Teams, ou du déclencheur
-**When a Teams webhook request is received**, puis configurer la publication dans le canal par
-le **bot Workflows (Flow bot)**. Ce bot fournit l'identité de publication ; développer une application
-bot Azure personnalisée n'est pas nécessaire pour cet exercice. Utiliser Workflows plutôt que
-les anciens connecteurs Office 365 en cours de retrait.
+1. Se connecter à Teams avec son compte de l'établissement et ouvrir l'application
+   **Flux de travail (Workflows / Power Automate)**.
+2. Rechercher et sélectionner le modèle **« Envoyez des alertes Webhook à un canal »**.
+3. Donner au flux un nom identifiable, par exemple `TP04-alertes-prenom-nom`, puis vérifier
+   la connexion Teams utilisée avec son compte.
+4. Sélectionner **l'équipe dédié au TP** dans lequel publier les alertes.
+5. Enregistrer le flux de travail, puis **copier l'URL du webhook** affichée dans ses détails.
+   Cette URL personnelle sera utilisée dans le block Prefect de la partie 8.B.
+
+Le modèle associe la réception d'une requête webhook à la publication dans le canal par le
+**bot Workflows (Flow bot)**. Ce bot fournit l'identité de publication ; développer une application
+bot Azure personnalisée n'est pas nécessaire pour cet exercice.
 [Référence Microsoft : notifications entrantes avec Workflows](https://support.microsoft.com/en-us/workflows/send-messages-in-teams-using-incoming-webhooks).
 
-Choisir le mode d'authentification autorisé par l'établissement. Le parcours simple du block webhook
-suppose une URL appelable sans jeton Entra, si le tenant autorise ce mode ; son URL signée est alors
-un secret. Un endpoint limité aux utilisateurs du tenant exige une authentification supplémentaire :
-le simple stockage de son URL dans Prefect ne fournit pas de jeton. Ne pas désactiver une règle du
-tenant pour contourner cette contrainte ; utiliser le canal préparé par l'enseignant ou le repli ci-dessous.
+Utiliser le modèle indiqué, sans le remplacer par une variante réservée aux utilisateurs de
+l'organisation ou à des personnes spécifiques : ces variantes demandent une authentification
+supplémentaire que le simple stockage de l'URL dans le block Prefect ne fournit pas.
 [Référence : déclencheur et authentification Teams](https://learn.microsoft.com/en-us/connectors/teams/).
 
-Conserver l'URL hors Git, logs, captures et artefacts MLflow. Nommer le workflow et son propriétaire ;
-prévoir un copropriétaire pour que le canal reste utilisable si ce compte n'est plus disponible.
+**L'URL du webhook est un secret** : la conserver hors Git, logs, captures et artefacts MLflow.
+Consigner le nom du flux, son propriétaire et le canal choisi sans exposer l'URL. Ajouter son binôme
+comme copropriétaire pour permettre la maintenance du flux si le propriétaire est indisponible.
 [Référence : fonctionnement et limites des webhooks Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/what-are-webhooks-and-connectors).
+
+**Objectif :** chaque élève possède un flux de travail actif créé avec le modèle demandé et son
+propre lien webhook, prêt à être enregistré puis testé dans Prefect en partie 8.B.
 
 ### B. Brancher une automation sur les événements Prefect
 
