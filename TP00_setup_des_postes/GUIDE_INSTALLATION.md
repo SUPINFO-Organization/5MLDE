@@ -473,8 +473,8 @@ docker compose ps
 Dans chaque terminal qui exécute le code Python, définir :
 
 ```powershell
-$env:MLFLOW_TRACKING_URI = "http://localhost:5000"
-$env:MLFLOW_REGISTRY_URI = "http://localhost:5000"
+$env:MLFLOW_TRACKING_URI = "http://localhost:7281"
+$env:MLFLOW_REGISTRY_URI = "http://localhost:7281"
 $env:PREFECT_API_URL = "http://localhost:4200/api"
 ```
 
@@ -494,8 +494,8 @@ docker compose ps
 Dans chaque terminal du projet Python :
 
 ```sh
-export MLFLOW_TRACKING_URI=http://localhost:5000
-export MLFLOW_REGISTRY_URI=http://localhost:5000
+export MLFLOW_TRACKING_URI=http://localhost:7281
+export MLFLOW_REGISTRY_URI=http://localhost:7281
 export PREFECT_API_URL=http://localhost:4200/api
 ```
 
@@ -516,8 +516,8 @@ Si votre accès Docker nécessite `sudo`, le préfixer uniquement sur les comman
 Dans chaque terminal du projet Python, sans `sudo` :
 
 ```sh
-export MLFLOW_TRACKING_URI=http://localhost:5000
-export MLFLOW_REGISTRY_URI=http://localhost:5000
+export MLFLOW_TRACKING_URI=http://localhost:7281
+export MLFLOW_REGISTRY_URI=http://localhost:7281
 export PREFECT_API_URL=http://localhost:4200/api
 ```
 
@@ -525,7 +525,7 @@ export PREFECT_API_URL=http://localhost:4200/api
 
 | Service | Adresse locale par défaut | Accès |
 |---|---|---|
-| MLflow | [localhost:5000](http://localhost:5000) | Sans authentification dans cette stack locale |
+| MLflow | [localhost:7281](http://localhost:7281) | Sans authentification dans cette stack locale |
 | Prefect | [localhost:4200](http://localhost:4200) | Sans authentification dans cette stack locale |
 | Grafana | [localhost:3000](http://localhost:3000) | `admin` / `5mlde-local-admin` |
 | PostgreSQL | `127.0.0.1:5432`, base `steam_api` | Comptes ci-dessous |

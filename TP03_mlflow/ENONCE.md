@@ -34,7 +34,7 @@ cd TP00_setup_des_postes
 docker compose up -d 
 ```
 
-Ouvrir [MLflow local](http://localhost:5000). Le Compose fourni utilise **MLflow 3.16.1**,
+Ouvrir [MLflow local](http://localhost:7281). Le Compose fourni utilise **MLflow 3.16.1**,
 SQLite pour les métadonnées et le registre, et un volume persistant pour les artefacts.
 Conserver cette version commune pendant le TP. Dans votre projet Python :
 
@@ -47,19 +47,19 @@ Dans chaque terminal qui lance une collecte, le worker PUSH ou une commande de l
 
 ```powershell
 # PowerShell
-$env:MLFLOW_TRACKING_URI = "http://localhost:5000"
-$env:MLFLOW_REGISTRY_URI = "http://localhost:5000"
+$env:MLFLOW_TRACKING_URI = "http://localhost:7281"
+$env:MLFLOW_REGISTRY_URI = "http://localhost:7281"
 ```
 
 ```sh
 # Linux/macOS
-export MLFLOW_TRACKING_URI=http://localhost:5000
-export MLFLOW_REGISTRY_URI=http://localhost:5000
+export MLFLOW_TRACKING_URI=http://localhost:7281
+export MLFLOW_REGISTRY_URI=http://localhost:7281
 ```
 
 Adapter le port si vous l'avez changé dans le Compose. Un processus déjà lancé ne reçoit pas ces
 nouvelles variables : redémarrer notamment le worker. Depuis un conteneur du même réseau Compose,
-l'adresse serait `http://mlflow:5000`. Le code Python reste exécuté sur votre poste dans ce TP.
+l'adresse serait `http://mlflow:7281`. Le code Python reste exécuté sur votre poste dans ce TP.
 
 Créer une expérience propre au binôme, par exemple `5mlde-equipe07-steam`.
 Laisser le serveur choisir l'emplacement des artefacts ; ne pas imposer un chemin local du poste client.

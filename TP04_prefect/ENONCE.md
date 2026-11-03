@@ -50,7 +50,7 @@ cd TP00_setup_des_postes
 docker compose up -d 
 ```
 
-Ouvrir [Prefect](http://localhost:4200) et [MLflow](http://localhost:5000).
+Ouvrir [Prefect](http://localhost:4200) et [MLflow](http://localhost:7281).
 Dans le projet Python des TPs précédents, aligner le SDK sur le serveur **Prefect 3.8.7** du Compose :
 
 ```sh
@@ -64,15 +64,15 @@ Configurer chaque terminal exécutant votre code, notamment celui du worker PUSH
 ```powershell
 # PowerShell
 $env:PREFECT_API_URL = "http://localhost:4200/api"
-$env:MLFLOW_TRACKING_URI = "http://localhost:5000"
-$env:MLFLOW_REGISTRY_URI = "http://localhost:5000"
+$env:MLFLOW_TRACKING_URI = "http://localhost:7281"
+$env:MLFLOW_REGISTRY_URI = "http://localhost:7281"
 ```
 
 ```sh
 # Linux/macOS
 export PREFECT_API_URL=http://localhost:4200/api
-export MLFLOW_TRACKING_URI=http://localhost:5000
-export MLFLOW_REGISTRY_URI=http://localhost:5000
+export MLFLOW_TRACKING_URI=http://localhost:7281
+export MLFLOW_REGISTRY_URI=http://localhost:7281
 ```
 
 Adapter les ports personnalisés. L'URL Prefect doit inclure `/api`. Redémarrer les processus lancés
