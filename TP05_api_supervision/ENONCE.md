@@ -34,9 +34,7 @@ Le Grafana des TPs précédents est réutilisé ; une instance PostgreSQL **18.6
 Depuis le dossier du Compose :
 
 ```sh
-docker compose config --quiet
-docker compose up -d --wait --wait-timeout 180
-docker compose ps
+docker compose up -d
 docker compose exec -T postgres psql -U postgres -d steam_api -c "\dt tracing.*"
 ```
 
@@ -57,7 +55,7 @@ modèles MLflow, l'historique Prefect et les dashboards.
 | PostgreSQL | `127.0.0.1:5432`, base `steam_api`, schéma `tracing` |
 | Compte API | `api_writer`, mot de passe `5mlde-local-api`, droits SELECT et INSERT |
 | Compte Grafana | `grafana_reader`, mot de passe `5mlde-local-grafana`, lecture seule |
-| Grafana | `http://localhost:3000`, identifiants du Compose existant |
+| Grafana | `http://localhost:3000`, username : ``admin``, mot de passe : ``5mlde-local-admin``  |
 | Source Grafana fournie | `Steam API - PostgreSQL`, UID `steam-api-postgres` |
 | Nouvelle API d'inférence | `127.0.0.1:8001`, pour conserver le port 8000 de la collecte PUSH |
 

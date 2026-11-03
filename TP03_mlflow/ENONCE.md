@@ -27,12 +27,11 @@ aucun notebook, squelette supplémentaire ou corrigé n'est fourni.
 
 ## 1 — Brancher le projet sur le serveur commun
 
-Depuis le dossier du `compose.yml` commun :
+Depuis la racine du répository lancez les commandes suivantes :
 
 ```sh
-docker compose config --quiet
-docker compose up -d --wait --wait-timeout 180 mlflow
-docker compose ps mlflow
+cd TP00_setup_des_postes
+docker compose up -d 
 ```
 
 Ouvrir [MLflow local](http://localhost:5000). Le Compose fourni utilise **MLflow 3.16.1**,
@@ -328,7 +327,7 @@ Réaliser les vérifications suivantes sur votre intégration, avec les anciens 
 | Redémarrage normal du conteneur MLflow | Runs et modèles encore consultables et téléchargeables |
 
 Pour simuler l'indisponibilité : depuis le dossier du Compose, utiliser `docker compose stop mlflow`,
-puis `docker compose up -d --wait mlflow` pour reprendre. Ne pas supprimer les volumes.
+puis `docker compose up -d` pour reprendre. Ne pas supprimer les volumes.
 Dans le socle, une panne de suivi bloque la publication ; il n'est pas demandé de construire une
 file d'attente hors ligne. Un run ne peut pas être marqué `FAILED` à distance pendant cette panne :
 conserver le diagnostic local et réconcilier son état après reprise.

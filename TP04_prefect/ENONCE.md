@@ -43,12 +43,11 @@ Un serveur Prefect observe et coordonne les exécutions ; il n'exécute pas à l
 
 ## 1 — Connecter le SDK au serveur commun
 
-Depuis le dossier contenant le Compose :
+Depuis la racine du répository lancez les commandes suivantes :
 
 ```sh
-docker compose config --quiet
-docker compose up -d --wait --wait-timeout 180 prefect mlflow
-docker compose ps
+cd TP00_setup_des_postes
+docker compose up -d 
 ```
 
 Ouvrir [Prefect](http://localhost:4200) et [MLflow](http://localhost:5000).
